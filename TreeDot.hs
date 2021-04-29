@@ -1,3 +1,9 @@
+{-
+Simple data types and functions to visualize trees.
+
+Author: Pieter Staal
+-}
+
 module TreeDot (RoseTree(RoseNode), exportTree) where
 
 type Label = String
