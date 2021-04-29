@@ -15,8 +15,18 @@ data RoseTree = RoseNode String [RoseTree]
 data DotTree = DotNode ID Label [DotTree]
     deriving (Show, Eq)
 
-    
-testtree = RoseNode "0" [RoseNode "11" [RoseNode "21" [RoseNode "31" [],RoseNode "32" []],RoseNode "22" []],RoseNode "12" [RoseNode "23" [],RoseNode "24" [RoseNode "33" [],RoseNode "34" []]]]
+
+testtree = RoseNode "0" 
+    [RoseNode "11" 
+        [RoseNode "21" 
+            [RoseNode "31" [],
+             RoseNode "32" []],
+             RoseNode "22" []],
+         RoseNode "12" 
+        [RoseNode "23" [],
+         RoseNode "24"
+            [RoseNode "33" [],
+             RoseNode "34" []]]]
 
 largetree = RoseNode "large" [testtree, testtree, testtree]
 hugetree = RoseNode "huge" [largetree, testtree, largetree]
