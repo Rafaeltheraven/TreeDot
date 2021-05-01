@@ -4,7 +4,9 @@ Simple data types and functions to visualize trees.
 Author: Pieter Staal
 -}
 
-module TreeDot (RoseTree(RoseNode), exportTree) where
+module TreeDot (RoseTree(RoseNode), exportTree, xdot) where
+
+import System.Process
 
 type Label = String
 type ID = String
@@ -41,8 +43,12 @@ pp' id idx (RoseNode label subtrees) = DotNode id' label subtrees'
         id' = (id ++ show idx)
         subtrees' = map (\(t, i) -> pp' id' i t) (zip subtrees [1..])
 
-exportTree :: RoseTree -> IO ()
-exportTree tree = writeFile "out.dot" (makeDot $ pp tree)
+exportTree :: RoseTree -> FilePath -> IO ()
+exportTree tree path = writeFile path (makeDot $ pp tree)
+
+xdot :: RoseTree -> IO String
+xdot tree = (writeFile "tmp_out.dot" (makeDot $ pp tree)) >> readProcess "xdot" ["tmp_out.dot"] []
+
 
 makeDot :: DotTree -> String
 makeDot tree = prelude ++ tree2dot tree ++ end
