@@ -4,7 +4,7 @@ Exports the `RoseTree` datatype and a function `exportTree` which generates a do
 
 ## Importing this module
 
-Put `TreeDot.hs` in the same directory as the Haskell file that needs it (or use GHCI's -i option as explained in section 2.2.1 [here](https://downloads.haskell.org/~ghc/7.6.1/docs/html/users_guide/loading-source-files.html)). Then import it as follows:
+Put `TreeDot.hs` in the same directory as the Haskell file that needs it (or use GHCI's -i option as explained in section 2.2.1 [here](https://downloads.haskell.org/~ghc/7.6.1/docs/html/users_guide/loading-source-files.html)). Then import it by putting this at the top of your file:
 
 ```import TreeDot```
 
@@ -12,21 +12,21 @@ Put `TreeDot.hs` in the same directory as the Haskell file that needs it (or use
 
 Use the `exportTree` function to export a tree to a dot file:
 
-```exportTree myRoseTree "graph.dot"```
+```λ exportTree myRoseTree "graph.dot"```
 
 ## Using graphviz
 
 With the graphviz software installed the following command converts the dot file to an image:
 
-```dot -Tpng graph.dot > out.png```
+```$ dot -Tpng graph.dot > out.png```
 
 Or view the file with `xdot`:
 
-```xdot graph.dot```
+```$ xdot graph.dot```
 
 If `xdot` is installed, this command can also be called from GHCI using the `xdot` function:
 
-```xdot myRoseTree```
+```λ xdot myRoseTree```
 
 ## Installing xdot
 
