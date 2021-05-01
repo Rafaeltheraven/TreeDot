@@ -28,6 +28,10 @@ If `xdot` is installed, this command can also be called from GHCI using the `xdo
 
 ```xdot myRoseTree```
 
+## Installing xdot
+
+`xdot` and install instructions for both Windows and Linux are available [here](https://github.com/jrfonseca/xdot.py).
+
 ## Online tools
 
 This online tools exists to view dot files:
