@@ -7,6 +7,7 @@ Author: Pieter Staal
 module TreeDot (RoseTree(RoseNode), exportTree, xdot) where
 
 import System.Process
+import System.Directory
 
 type Label = String
 type ID = String
@@ -46,8 +47,12 @@ pp' id idx (RoseNode label subtrees) = DotNode id' label subtrees'
 exportTree :: RoseTree -> FilePath -> IO ()
 exportTree tree path = writeFile path (makeDot $ pp tree)
 
-xdot :: RoseTree -> IO String
-xdot tree = (writeFile "tmp_out.dot" (makeDot $ pp tree)) >> readProcess "xdot" ["tmp_out.dot"] []
+
+xdot :: RoseTree -> IO ()
+xdot tree = do
+    writeFile "tmp_out.dot" (makeDot $ pp tree)
+    readProcess "xdot" ["tmp_out.dot"] []
+    removeFile "tmp_out.dot"
 
 
 makeDot :: DotTree -> String
