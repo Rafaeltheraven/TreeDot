@@ -2,6 +2,12 @@
 
 Exports the `RoseTree` datatype and a function `exportTree` which generates a dot-file corresponding to that tree. The dot file can then be easily visualized in several ways.
 
+## Importing this module
+
+Put `TreeDot.hs` in the same directory as the Haskell file that needs it (or use GHCI's -i option as explained in section 2.2.1 [here](https://downloads.haskell.org/~ghc/7.6.1/docs/html/users_guide/loading-source-files.html)). Then import it as follows:
+
+```import TreeDot```
+
 ## Exporting a tree
 
 Use the `exportTree` function to export a tree to a dot file:
