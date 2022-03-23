@@ -1,0 +1,34 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.34.5.
+--
+-- see: https://github.com/sol/hpack
+
+name:           TreeDot
+version:        0.1.0.0
+description:    Please see the README on GitHub at <https://github.com/PietPtr/TreeDot>
+homepage:       https://github.com/PietPtr/TreeDot#readme
+bug-reports:    https://github.com/PietPtr/TreeDot/issues
+author:         Pieter Staal
+maintainer:     rafael@dulfer.be
+copyright:      2021 Pieter Staal
+build-type:     Simple
+extra-source-files:
+    README.md
+
+source-repository head
+  type: git
+  location: https://github.com/PietPtr/TreeDot
+
+library
+  exposed-modules:
+      TreeDot
+  other-modules:
+      Paths_TreeDot
+  hs-source-dirs:
+      ./
+  build-depends:
+      base >=4.7
+    , directory
+    , process
+  default-language: Haskell2010
